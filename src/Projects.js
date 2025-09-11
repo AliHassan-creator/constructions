@@ -149,21 +149,22 @@ const Projects = () => {
           
           {/* Projects Grid */}
           <div className="projects-grid">
-            {filteredProjects.map(project => (
-              <div key={project.id} className="project-card">
-                <div 
-                  className="project-image"
-                  style={{backgroundImage: `url(${project.image})`}}
-                >
-                  <div className="project-overlay">
-                    <div className="project-category">{project.category}</div>
-                    <h3 className="project-title">{project.title}</h3>
-                    <Link to="/project-details" className="project-view-btn" style={{ textDecoration: 'none', color: 'inherit' }}>View Project</Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+  {filteredProjects.map(project => (
+    <div key={project.id} className="project-card">
+      <div 
+        className="project-image"
+        style={{backgroundImage: `url(${project.image})`}}
+      >
+        {/* Place the category tag here, outside the overlay */}
+        <div className="project-category">{project.category}</div>
+        <div className="project-overlay">
+          <h3 className="project-title">{project.title}</h3>
+          <Link to="/project-details" className="project-view-btn" style={{ textDecoration: 'none', color: 'inherit' }}>View Project</Link>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
         </div>
       </section>
     </div>

@@ -65,6 +65,12 @@ export default function ConstructionHome() {
     }
   };
 
+  // Debug function to test mobile menu
+  const handleMenuClick = (e) => {
+    console.log('Menu item clicked:', e.target.textContent);
+    setMenuOpen(false);
+  };
+
   // Projects data
   const projects = [
     {
@@ -235,10 +241,18 @@ export default function ConstructionHome() {
               <button className="menu-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
                 &times;
               </button>
-              <li className="nav-item"><Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>Home</Link></li>
-              <li className="nav-item"><Link to="/about" style={{ textDecoration: 'none', color: 'inherit' }}>About</Link></li>
-              <li className="nav-item"><Link to="/projects" style={{ textDecoration: 'none', color: 'inherit' }}>Projects</Link></li>
-              <li className="nav-item"><Link to="/services" style={{ textDecoration: 'none', color: 'inherit' }}>Services</Link></li>
+              <li className="nav-item">
+                <Link to="/" onClick={handleMenuClick} style={{ textDecoration: 'none', color: 'inherit', display: 'block', width: '100%', height: '100%' }}>Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/about" onClick={handleMenuClick} style={{ textDecoration: 'none', color: 'inherit', display: 'block', width: '100%', height: '100%' }}>About</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/projects" onClick={handleMenuClick} style={{ textDecoration: 'none', color: 'inherit', display: 'block', width: '100%', height: '100%' }}>Projects</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/services" onClick={handleMenuClick} style={{ textDecoration: 'none', color: 'inherit', display: 'block', width: '100%', height: '100%' }}>Services</Link>
+              </li>
               
               {/* Blog Dropdown */}
               <li 
@@ -258,8 +272,12 @@ export default function ConstructionHome() {
                   </svg>
                 </span>
                 <ul className={`dropdown-menu ${activeDropdown === 'blog' ? 'active' : ''}`}>
-                  <li className="nav-item"><Link to="/blog" style={{ textDecoration: 'none', color: 'inherit' }}>Blog</Link></li>
-                  <li className="nav-item"><Link to="/blog-details" style={{ textDecoration: 'none', color: 'inherit' }}>Blog Details</Link></li>
+                  <li className="nav-item">
+                    <Link to="/blog" onClick={handleMenuClick} style={{ textDecoration: 'none', color: 'inherit', display: 'block', width: '100%', height: '100%' }}>Blog</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/blog-details" onClick={handleMenuClick} style={{ textDecoration: 'none', color: 'inherit', display: 'block', width: '100%', height: '100%' }}>Blog Details</Link>
+                  </li>
                 </ul>
               </li>
               
@@ -281,13 +299,21 @@ export default function ConstructionHome() {
                   </svg>
                 </span>
                 <ul className={`dropdown-menu ${activeDropdown === 'pages' ? 'active' : ''}`}>
-                  <li className="nav-item"><Link to="/element" style={{ textDecoration: 'none', color: 'inherit' }}>Element</Link></li>
-                  <li className="nav-item"><Link to="/project-details" style={{ textDecoration: 'none', color: 'inherit' }}>Project Details</Link></li>
-                  <li className="nav-item"><Link to="/service-details" style={{ textDecoration: 'none', color: 'inherit' }}>Services Details</Link></li>
+                  <li className="nav-item">
+                    <Link to="/element" onClick={handleMenuClick} style={{ textDecoration: 'none', color: 'inherit', display: 'block', width: '100%', height: '100%' }}>Element</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/project-details" onClick={handleMenuClick} style={{ textDecoration: 'none', color: 'inherit', display: 'block', width: '100%', height: '100%' }}>Project Details</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/service-details" onClick={handleMenuClick} style={{ textDecoration: 'none', color: 'inherit', display: 'block', width: '100%', height: '100%' }}>Services Details</Link>
+                  </li>
                 </ul>
               </li>
               
-              <li className="nav-item"><Link to="/contact" style={{ textDecoration: 'none', color: 'inherit' }}>Contact</Link></li>
+              <li className="nav-item">
+                <Link to="/contact" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: 'inherit', display: 'block', width: '100%', height: '100%' }}>Contact</Link>
+              </li>
             </ul>
 
             <div className="right-controls">
@@ -506,22 +532,24 @@ export default function ConstructionHome() {
                     </div>
                     
                     {/* Projects Grid */}
-                    <div className="projects-grid">
-                      {filteredProjects.map(project => (
-                        <div key={project.id} className="project-card">
-                          <div 
-                            className="project-image"
-                            style={{backgroundImage: `url(${project.image})`}}
-                          >
-                            <div className="project-overlay">
-                              <div className="project-category">{project.category}</div>
-                              <h3 className="project-title">{project.title}</h3>
-                              <Link to="/project-details" className="project-view-btn" style={{ textDecoration: 'none', color: 'inherit' }}>View Project</Link>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+<div className="projects-grid">
+  {filteredProjects.map(project => (
+    <div key={project.id} className="project-card">
+      <div 
+        className="project-image"
+        style={{backgroundImage: `url(${project.image})`}}
+      >
+        {/* Place the category tag here, outside the overlay */}
+        <div className="project-category">{project.category}</div>
+        <div className="project-overlay">
+          <h3 className="project-title">{project.title}</h3>
+          <Link to="/project-details" className="project-view-btn" style={{ textDecoration: 'none', color: 'inherit' }}>View Project</Link>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
                   </div>
                 </section>
 
