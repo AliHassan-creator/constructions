@@ -392,7 +392,7 @@ export default function ConstructionHome() {
                           </div>
                           <h3>Engineering techniques & implementation</h3>
                           <p>Professional engineering solutions with modern techniques and precise implementation for your construction needs.</p>
-                          <Link to="/service-details" className="read-more-btn" style={{ textDecoration: 'none', color: 'inherit' }}>Read More</Link>
+                          <Link to="/service-details" className="read-more-btn" style={{ textDecoration: 'none', color: '#000' }}>Read More</Link>
                         </div>
                       </div>
 
@@ -414,7 +414,7 @@ export default function ConstructionHome() {
                           </div>
                           <h3>Engineering techniques & implementation</h3>
                           <p>Professional engineering solutions with modern techniques and precise implementation for your construction needs.</p>
-                          <Link to="/service-details" className="read-more-btn" style={{ textDecoration: 'none', color: 'inherit' }}>Read More</Link>
+                          <Link to="/service-details" className="read-more-btn" style={{ textDecoration: 'none', color: '#000' }}>Read More</Link>
                         </div>
                       </div>
 
@@ -435,7 +435,7 @@ export default function ConstructionHome() {
                           </div>
                           <h3>Engineering techniques & implementation</h3>
                           <p>Professional engineering solutions with modern techniques and precise implementation for your construction needs.</p>
-                          <Link to="/service-details" className="read-more-btn" style={{ textDecoration: 'none', color: 'inherit' }}>Read More</Link>
+                          <Link to="/service-details" className="read-more-btn" style={{ textDecoration: 'none', color: '#000' }}>Read More</Link>
                         </div>
                       </div>
                     </div>
